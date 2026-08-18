@@ -5,7 +5,7 @@ import {
 } from "../types";
 
 /** Número de WhatsApp Business de CASAINDR (formato E.164, sin "+" ni espacios). */
-export const WHATSAPP_BUSINESS_NUMBER = "18095551234";
+export const WHATSAPP_BUSINESS_NUMBER = "18099646177";
 
 export function calculateNights(checkIn: string, checkOut: string): number {
   if (!checkIn || !checkOut) return 0;

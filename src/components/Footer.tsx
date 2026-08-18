@@ -18,7 +18,7 @@ export default function Footer() {
           <div>
             <span className="text-xs uppercase tracking-widest2 text-zinc-500">Contacto</span>
             <ul className="mt-4 space-y-2 text-sm text-zinc-400">
-              <li>concierge@casaindr.com</li>
+              <li>Info@casaindr.com</li>
               <li>Casa de Campo, La Romana, RD</li>
               <li>
                 <a
