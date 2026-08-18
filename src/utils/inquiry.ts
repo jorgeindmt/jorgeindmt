@@ -1,8 +1,5 @@
-import {
-  BUDGET_RANGES,
-  CONCIERGE_SERVICES,
-  type InquiryFormData,
-} from "../types";
+import { translations, type Language } from "../i18n/translations";
+import type { InquiryFormData } from "../types";
 
 /** Número de WhatsApp Business de CASAINDR (formato E.164, sin "+" ni espacios). */
 export const WHATSAPP_BUSINESS_NUMBER = "18099646177";
@@ -16,45 +13,43 @@ export function calculateNights(checkIn: string, checkOut: string): number {
   return Math.round(diffMs / (1000 * 60 * 60 * 24));
 }
 
-function formatDate(value: string): string {
+function formatDate(value: string, locale: string): string {
   if (!value) return "—";
   const date = new Date(`${value}T00:00:00`);
-  return date.toLocaleDateString("es-DO", {
+  return date.toLocaleDateString(locale, {
     day: "2-digit",
     month: "long",
     year: "numeric",
   });
 }
 
-export function buildInquirySummary(data: InquiryFormData): string {
+export function buildInquirySummary(data: InquiryFormData, language: Language): string {
+  const dict = translations[language];
   const nights = calculateNights(data.checkIn, data.checkOut);
-  const budgetLabel =
-    BUDGET_RANGES.find((b) => b.id === data.budget)?.label ?? data.budget;
+  const budgetLabel = dict.budget[data.budget] ?? data.budget;
   const conciergeLabels = data.concierge.length
-    ? data.concierge
-        .map((id) => CONCIERGE_SERVICES.find((s) => s.id === id)?.label ?? id)
-        .join(", ")
-    : "Ninguno seleccionado";
+    ? data.concierge.map((id) => dict.conciergeOptions[id]).join(", ")
+    : dict.summary.none;
 
   return [
-    "*Nueva Consulta de Villa — CASAINDR*",
+    `*${dict.summary.title}*`,
     "",
-    `*Presupuesto:* ${budgetLabel}`,
-    `*Habitaciones:* ${data.bedrooms}`,
-    `*Huéspedes:* ${data.adults} adultos, ${data.children} niños`,
-    `*Check-in:* ${formatDate(data.checkIn)}`,
-    `*Check-out:* ${formatDate(data.checkOut)}`,
-    `*Noches totales:* ${nights || "—"}`,
-    `*Conserjería:* ${conciergeLabels}`,
+    `*${dict.summary.budget}:* ${budgetLabel}`,
+    `*${dict.summary.bedrooms}:* ${data.bedrooms}`,
+    `*${dict.summary.guests}:* ${data.adults} ${dict.summary.adultsWord}, ${data.children} ${dict.summary.childrenWord}`,
+    `*${dict.summary.checkIn}:* ${formatDate(data.checkIn, dict.summary.dateLocale)}`,
+    `*${dict.summary.checkOut}:* ${formatDate(data.checkOut, dict.summary.dateLocale)}`,
+    `*${dict.summary.nightsTotal}:* ${nights || "—"}`,
+    `*${dict.summary.concierge}:* ${conciergeLabels}`,
     "",
-    `*Nombre:* ${data.fullName}`,
-    `*Email:* ${data.email}`,
-    `*Teléfono:* ${data.countryCode} ${data.phone}`,
+    `*${dict.summary.name}:* ${data.fullName}`,
+    `*${dict.summary.email}:* ${data.email}`,
+    `*${dict.summary.phone}:* ${data.countryCode} ${data.phone}`,
   ].join("\n");
 }
 
-export function buildWhatsAppUrl(data: InquiryFormData): string {
-  const text = encodeURIComponent(buildInquirySummary(data));
+export function buildWhatsAppUrl(data: InquiryFormData, language: Language): string {
+  const text = encodeURIComponent(buildInquirySummary(data, language));
   return `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${text}`;
 }
 

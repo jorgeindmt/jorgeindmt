@@ -4,6 +4,7 @@ import HowItWorks from "./components/HowItWorks";
 import Gallery from "./components/Gallery";
 import Concierge from "./components/Concierge";
 import Footer from "./components/Footer";
+import { LanguageProvider } from "./i18n/LanguageContext";
 
 export default function App() {
   function scrollToForm() {
@@ -11,15 +12,17 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 font-sans text-zinc-100">
-      <Navbar onRequestConsultation={scrollToForm} />
-      <main>
-        <Hero />
-        <HowItWorks />
-        <Gallery />
-        <Concierge />
-      </main>
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-zinc-950 font-sans text-zinc-100">
+        <Navbar onRequestConsultation={scrollToForm} />
+        <main>
+          <Hero />
+          <HowItWorks />
+          <Gallery />
+          <Concierge />
+        </main>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
