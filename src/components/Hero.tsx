@@ -1,6 +1,9 @@
+import { useLanguage } from "../i18n/LanguageContext";
 import InquiryForm from "./InquiryForm";
 
 export default function Hero() {
+  const { dict } = useLanguage();
+
   return (
     <section id="top" className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -10,29 +13,27 @@ export default function Hero() {
       <div className="mx-auto grid max-w-7xl gap-16 px-6 sm:px-10 lg:grid-cols-2 lg:items-center lg:gap-10">
         <div>
           <span className="mb-6 inline-block text-xs uppercase tracking-widest2 text-sand-300/80">
-            Villas & Conserjería VIP · Casa de Campo
+            {dict.hero.badge}
           </span>
           <h1 className="font-serif text-4xl leading-[1.1] text-zinc-50 sm:text-5xl lg:text-6xl">
-            Encontramos tu villa ideal en Casa de Campo
+            {dict.hero.title}
           </h1>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-zinc-400 sm:text-lg">
-            Un servicio de curaduría personalizada. Cuéntanos tus criterios y nuestro equipo selecciona,
-            de nuestro portafolio exclusivo, las propiedades que se ajustan exactamente a tu estancia —
-            con conserjería dedicada de principio a fin.
+            {dict.hero.subtitle}
           </p>
 
           <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-white/10 pt-8 sm:max-w-md">
             <div>
               <dt className="font-serif text-2xl text-sand-200">40+</dt>
-              <dd className="mt-1 text-xs uppercase tracking-wide text-zinc-500">Villas Curadas</dd>
+              <dd className="mt-1 text-xs uppercase tracking-wide text-zinc-500">{dict.hero.statVillas}</dd>
             </div>
             <div>
               <dt className="font-serif text-2xl text-sand-200">24/7</dt>
-              <dd className="mt-1 text-xs uppercase tracking-wide text-zinc-500">Conserjería</dd>
+              <dd className="mt-1 text-xs uppercase tracking-wide text-zinc-500">{dict.hero.statConcierge}</dd>
             </div>
             <div>
               <dt className="font-serif text-2xl text-sand-200">100%</dt>
-              <dd className="mt-1 text-xs uppercase tracking-wide text-zinc-500">A Medida</dd>
+              <dd className="mt-1 text-xs uppercase tracking-wide text-zinc-500">{dict.hero.statTailored}</dd>
             </div>
           </dl>
         </div>
