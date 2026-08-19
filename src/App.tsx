@@ -18,7 +18,7 @@ export default function App() {
         <main>
           <Hero />
           <HowItWorks />
-          <Gallery />
+          <Gallery onRequestConsultation={scrollToForm} />
           <Concierge />
         </main>
         <Footer />

@@ -3,3 +3,6 @@ dist
 .env
 .DS_Store
 tsconfig.tsbuildinfo
+
+# Fotos originales pesadas — usar public/villas/ para el sitio
+src/Public/

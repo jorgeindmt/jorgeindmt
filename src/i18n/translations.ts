@@ -44,6 +44,39 @@ const es = {
     title: "Una selección de nuestras villas",
     note: "Solo una muestra — cada consulta recibe propuestas curadas según tus criterios exactos.",
     bedrooms: "habitaciones",
+    guests: "huéspedes",
+    viewGallery: "Ver galería",
+    checkAvailability: "Consultar Disponibilidad",
+    reserve: "Reservar",
+    close: "Cerrar",
+    noResults: "No hay villas que coincidan con estos filtros.",
+    clearFilters: "Limpiar filtros",
+    filters: {
+      all: "Todas",
+      capacity: "Capacidad",
+      type: "Tipo de Villa",
+      location: "Ubicación",
+    },
+    capacityTiers: {
+      "4-6": "4–6 huéspedes",
+      "6-8": "6–8 huéspedes",
+      "8plus": "8+ huéspedes",
+    },
+    types: {
+      oceanfront: "Frente al Mar",
+      golf: "Vista al Golf",
+      family: "Familiar",
+      estate: "Hacienda",
+    },
+    locations: {
+      puntaAguila: "Punta Aguila",
+      puntaMinitas: "Punta Minitas",
+      canas: "Cañas",
+      golf: "Campo de Golf",
+      elValle: "El Valle",
+      batey: "Batey",
+      mango: "Mango",
+    },
     amenities: {
       oceanFront: "Frente al Mar",
       golfView: "Vista al Golf",
@@ -51,6 +84,48 @@ const es = {
       infinityPool: "Piscina Infinita",
       jacuzzi: "Jacuzzi",
       privateDock: "Muelle Privado",
+    },
+    villas: {
+      cahoba: {
+        tagline: "Elegancia junto al fairway en Cañas",
+        description:
+          "Amplia villa con vistas al campo de golf, piscina privada y espacios ideales para grupos que buscan privacidad y confort.",
+      },
+      anacaona: {
+        tagline: "Exclusividad frente al mar en Punta Aguila",
+        description:
+          "Residencia de lujo con acceso directo al océano, piscina infinita y muelle privado — la expresión máxima del estilo Casa de Campo.",
+      },
+      batey: {
+        tagline: "Calidez familiar en el corazón del resort",
+        description:
+          "Villa acogedora con piscina y vistas al golf, perfecta para familias que valoran la comodidad y la cercanía a las amenidades.",
+      },
+      guanin: {
+        tagline: "Retiro privado entre colinas y fairways",
+        description:
+          "Hacienda en El Valle con amplios jardines, piscina climatizada y vistas panorámicas — un refugio sereno para estancias prolongadas.",
+      },
+      cayo: {
+        tagline: "Horizonte infinito sobre Punta Minitas",
+        description:
+          "Villa frente al mar con terrazas amplias, piscina infinita y acceso a muelle privado para experiencias náuticas exclusivas.",
+      },
+      atabey: {
+        tagline: "Serenidad oceánica con alma caribeña",
+        description:
+          "Propiedad emblemática en Punta Minitas con diseño contemporáneo, piscina privada y acceso directo a la costa.",
+      },
+      cacique: {
+        tagline: "Maestría arquitectónica sobre el green",
+        description:
+          "Villa de golf con piscina de borde infinito y espacios generosos para quienes viven el resort desde el tee.",
+      },
+      yucahu: {
+        tagline: "Encanto íntimo entre jardines tropicales",
+        description:
+          "Refugio familiar con piscina privada y ambiente relajado, ideal para escapadas en pareja o grupos pequeños.",
+      },
     },
   },
   conciergeSection: {
@@ -184,6 +259,39 @@ const en = {
     title: "A selection of our villas",
     note: "Just a preview — every inquiry receives curated proposals based on your exact criteria.",
     bedrooms: "bedrooms",
+    guests: "guests",
+    viewGallery: "View gallery",
+    checkAvailability: "Check Availability",
+    reserve: "Reserve",
+    close: "Close",
+    noResults: "No villas match these filters.",
+    clearFilters: "Clear filters",
+    filters: {
+      all: "All",
+      capacity: "Capacity",
+      type: "Villa Type",
+      location: "Location",
+    },
+    capacityTiers: {
+      "4-6": "4–6 guests",
+      "6-8": "6–8 guests",
+      "8plus": "8+ guests",
+    },
+    types: {
+      oceanfront: "Oceanfront",
+      golf: "Golf View",
+      family: "Family",
+      estate: "Estate",
+    },
+    locations: {
+      puntaAguila: "Punta Aguila",
+      puntaMinitas: "Punta Minitas",
+      canas: "Cañas",
+      golf: "Golf Course",
+      elValle: "El Valle",
+      batey: "Batey",
+      mango: "Mango",
+    },
     amenities: {
       oceanFront: "Ocean Front",
       golfView: "Golf View",
@@ -191,6 +299,48 @@ const en = {
       infinityPool: "Infinity Pool",
       jacuzzi: "Jacuzzi",
       privateDock: "Private Dock",
+    },
+    villas: {
+      cahoba: {
+        tagline: "Fairway elegance in Cañas",
+        description:
+          "Spacious villa with golf course views, private pool and generous living areas — ideal for groups seeking privacy and comfort.",
+      },
+      anacaona: {
+        tagline: "Oceanfront exclusivity in Punta Aguila",
+        description:
+          "Luxury residence with direct ocean access, infinity pool and private dock — the ultimate Casa de Campo experience.",
+      },
+      batey: {
+        tagline: "Family warmth at the heart of the resort",
+        description:
+          "Welcoming villa with pool and golf views, perfect for families who value comfort and proximity to resort amenities.",
+      },
+      guanin: {
+        tagline: "Private retreat among hills and fairways",
+        description:
+          "Estate in El Valle with expansive gardens, heated pool and panoramic views — a serene haven for extended stays.",
+      },
+      cayo: {
+        tagline: "Infinite horizon over Punta Minitas",
+        description:
+          "Oceanfront villa with wide terraces, infinity pool and private dock access for exclusive nautical experiences.",
+      },
+      atabey: {
+        tagline: "Ocean serenity with Caribbean soul",
+        description:
+          "Landmark property in Punta Minitas with contemporary design, private pool and direct coastal access.",
+      },
+      cacique: {
+        tagline: "Architectural mastery over the green",
+        description:
+          "Golf villa with infinity-edge pool and generous spaces for those who live the resort from the tee.",
+      },
+      yucahu: {
+        tagline: "Intimate charm among tropical gardens",
+        description:
+          "Family retreat with private pool and relaxed atmosphere, ideal for couples or small groups.",
+      },
     },
   },
   conciergeSection: {
